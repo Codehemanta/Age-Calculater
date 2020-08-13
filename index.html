@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Age Calculater</title>
+	<style type="text/css">
+
+
+
+
+.abc {
+	font-family: sans-serif;
+}
+
+h1 {
+	font-family: sans-serif;
+	font-size: 45px;
+	text-align: center;
+
+}		
+
+.headin {
+	font-size: 40px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+
+}		
+
+.input {
+	width: 32%;
+	height: 80px;
+	text-align: center; 
+	font-size: 60px;
+	margin-left: 8px;  
+}
+
+.result {
+	font-family: sans-serif;
+	font-size: 60px;
+}
+.btn {
+	width: 30%;
+	height: 80px;
+	font-size: 60px;
+	margin-left: 35%;
+	margin-top: 20px;
+	border-radius: 10px;
+	background: #c7c7c7;
+}
+
+
+	</style>
+</head>
+<body>
+	<div class="abc">
+		<h1>Age Calculater</h1>
+		<div class="headin">Enter Your Date of Birth: -</div>
+		<select id="BODdate" class="input" >
+          <option >01</option>
+          <option >02</option>
+          <option >03</option>
+          <option >04</option>
+          <option >05</option>
+          <option >06</option>
+          <option >07</option>
+          <option >08</option>
+          <option >09</option>
+          <option >10</option>
+          <option >11</option>
+          <option >12</option>
+          <option >13</option>
+          <option >14</option>
+          <option >15</option>
+          <option >16</option>
+          <option >17</option>
+          <option >18</option>
+          <option >19</option>
+          <option >20</option>
+          <option >21</option>
+          <option >22</option>
+          <option >23</option>
+          <option >24</option>
+          <option >25</option>
+          <option >28</option>
+          <option >30</option>
+          <option >31</option>        
+        </select>
+		
+		<select id="BODmonth" class="input" >
+          <option value="01">January</option>
+          <option value="02">February</option>
+          <option value="03">March</option>
+          <option value="04">April</option>
+          <option value="05">May</option>
+          <option value="06">June</option>
+          <option value="07">July</option>
+          <option value="8">August</option>
+          <option value="9">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="12">December</option>
+        </select>
+		<select id="BODyear" class="input" >
+          <option >2020</option>
+          <option >2019</option>
+          <option >2018</option>
+          <option >2017</option>
+          <option >2016</option>
+          <option >2015</option>
+          <option >2014</option>
+          <option >2013</option>
+          <option >2012</option>
+          <option >2011</option>
+          <option >2010</option>
+          <option >2009</option>
+          <option >2008</option>
+          <option >2007</option>
+          <option >2006</option>
+          <option >2005</option>
+          <option >2004</option>
+          <option >2003</option>
+          <option >2002</option>
+          <option >2001</option>
+          <option >2000</option>
+          <option >1999</option>
+          <option >1998</option>
+          <option >1997</option>
+          <option >1996</option>
+          <option >1995</option>
+          <option >1994</option>
+          <option >1993</option>
+          <option >1992</option>
+          <option >1991</option>
+          <option >1990</option>
+          <option >1989</option>
+          <option >1988</option>
+          <option >1987</option>
+          <option >1988</option>
+          <option >1986</option>
+          <option >1985</option>
+          <option >1984</option>
+          <option >1983</option>
+          <option >1982</option>
+          <option >1981</option>
+          <option >1980</option>
+          <option >1979</option>
+          <option >1978</option>
+          <option >1977</option>
+          <option >1976</option>
+          <option >1975</option>
+          <option >1974</option>
+          <option >1973</option>
+          <option >1972</option>
+          <option >1971</option>
+          <option >1970</option>  
+        </select>
+		<div  class="result" id="years"></div>
+		<div  class="result" id="monthr"></div>
+		<div  class="result" id="Dayr"></div>
+		<div  class="result" id="hoursr"></div>
+		<div  class="result" id="minuter"></div>
+		<div  class="result" id="secondr"></div>		
+	</div>
+	<button class="btn" onclick="cal()">calculate</button>
+	<div  class="result" id="iff"></div>
+	<div  class="result" id="sleepid"></div>
+	<div  class="result" id="poty"></div>
+	<div  class="result" id="eteing"></div>
+
+<script type="text/javascript">
+
+function cal() {
+var a = new Date();
+var newdate = a.getDate();
+var newmonth = a.getMonth();
+var newyear = a.getFullYear();
+var BODdate = document.getElementById("BODdate").value;
+var BODmonth = document.getElementById("BODmonth").value;
+var BODyear = document.getElementById("BODyear").value;
+var DOB = BODmonth+" "+BODdate+" "+BODyear;
+var olddayis = Date.parse(DOB);
+var todayis = Date.now();
+var ageInMilliseconds = todayis-olddayis;
+var milliseconds = ageInMilliseconds;
+var second = 1000;
+var minute = 60;
+var hour = 60;
+var day = 24;
+var month = day*30; 
+var year = day*365;
+
+var achulyears = newyear - BODyear;
+var months = achulyears * 12;
+var actulmonths = (months+newmonth)-BODmonth;
+var seconds = Math.round(milliseconds/second);
+var minutes = Math.round(seconds/minute);
+var hours = Math.round(minutes/hour);
+var days = Math.round(hours/day);
+var avgage = 100;
+var timemonth = avgage*12 ;
+var timedays = (avgage*365)+25;//leapyeardays
+var avghours = timedays * day;
+var avgminutes = avghours * hour;
+var avgsecends = avgminutes *second;
+var timeday = timedays - days;
+var timehoues = avghours  - hours;
+var timeminutes = avgminutes - minutes;
+var timesecends = avgsecends - seconds;
+
+var sleepingtime = 8;
+var sleepinghours = timedays *sleepingtime;
+var sleepingminutes = sleepinghours *hour;
+var sleepingsecends = sleepingminutes *hour;
+
+var sleephx = timehoues -sleepinghours;
+var sleepmx = timeminutes - sleepingminutes;
+var sleepsx = timesecends - sleepingsecends;
+
+var sleepdx = Math.round(sleephx /24);
+
+var tolitehurs = Math.round(days / 7);
+var toliteminite = tolitehurs *45;
+var toliteminitew = tolitehurs *82;
+var tolitem = Math.round(toliteminite / 60);
+var tolitew = Math.round(toliteminitew / 60);
+
+var eatingm = days *68;
+var eating = Math.round(eatingm /60);
+
+
+document.getElementById("years").innerHTML="[1]Your Age is: "+achulyears +" years.";
+document.getElementById("monthr").innerHTML="[2]Your Month is: "+actulmonths+" months.";
+document.getElementById("Dayr").innerHTML="[3]Your Day is: "+days+" days.";
+document.getElementById("hoursr").innerHTML="[4]Your Hour is: "+hours+" hours.";
+document.getElementById("minuter").innerHTML="[5]Your Minute is: "+minutes+" minutes.";
+document.getElementById("secondr").innerHTML="[6]Your Second is: "+seconds+" seconds.";
+document.getElementById("iff").innerHTML="[i]If Human Average Age is 80 to 100 years,<br> Then your Future Times is "+timeday+"days, "+timehoues+"hours, "+timeminutes+"minutes, "+timesecends+"seconds. and";
+document.getElementById("sleepid").innerHTML="<br>[ii]If Human Average Sleeping time is 7 to 9 hours,then your Future working time is "+sleepdx+"days, "+sleephx+"hours, "+sleepmx+"minutes, "+sleepsx+"seconds.";
+document.getElementById("poty").innerHTML="<br>[iii]The poll of 2,500 people revealed that going to the toilet accounts for the bathroom- an average of one hour and 42 minutes a week, or almost 92 days over a lifetime. so upto "+newdate+"/"+newmonth+"/"+newyear+" you spend to the toilet "+tolitem+"hours and expeted Woman, so "+tolitew+"hours.";
+document.getElementById("eteing").innerHTML="<br>[iv]the American Time Use Suervay- and it turns out thet, on average, we spend only 1 hours and 8 minutes of every weekday consuming food and drink so upto"+newdate+"/"+newmonth+"/"+newyear+" you spend eating and drinking "+eating+"hours.";
+
+}
+
+</script>
+</body>
+</html>
